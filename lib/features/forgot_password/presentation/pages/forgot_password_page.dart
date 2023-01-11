@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nhutube/core/configs/app_color.dart';
+import 'package:nhutube/features/login/presentation/pages/login_page.dart';
 import 'package:nhutube/features/register/presentation/widgets/register_button_widget.dart';
-import 'package:nhutube/router/app_page.dart';
 import 'package:nhutube/widgets/custom_text_field_widget.dart';
 import 'package:nhutube/widgets/gradient_button_widget.dart';
 
 import '../../../../core/configs/app_lottie.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class ForgorPasswordPage extends StatelessWidget {
+  const ForgorPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget {
                 width: 250.w,
               ),
               Text(
-                "Login to your account",
+                "Forgot your password",
                 style: theme.textTheme.headlineLarge,
               ),
               SizedBox(height: 40.h),
@@ -46,71 +46,18 @@ class LoginPage extends StatelessWidget {
                     Icons.email,
                     color: Colors.black38,
                   ),
-                  hintText: " Email",
+                  hintText: "Email",
                 ),
               ),
-              SizedBox(height: 10.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: const CustomTextFieldWidget(
-                  icon: Icon(
-                    Icons.password,
-                    color: Colors.black38,
-                  ),
-                  isPassword: true,
-                  hintText: " Password",
-                ),
-              ),
-              SizedBox(height: 8.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Transform.scale(
-                    scale: 1,
-                    child: Checkbox(
-                      value: true,
-                      onChanged: (value) {},
-                      fillColor: MaterialStateProperty.all(
-                        AppColor.buttonRadient2,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-                  Text(
-                    "Remember me",
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                  SizedBox(width: 16.w),
-                ],
-              ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 16.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: GradientButtonWidget(
-                    title: "Sign in",
-                    function: () {
-                      // Navigator.of(context).pushNamedAndRemoveUntil(
-                      //   AppPage.fillProfilePage,
-                      //   (route) => false,
-                      // );
-                      Navigator.of(context).pushNamed(AppPage.fillProfilePage);
-                    }),
-              ),
-              SizedBox(height: 24.h),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushNamed(AppPage.forgotPasswordPage);
-                },
-                child: Text(
-                  "Forgot the password?",
-                  style: theme.textTheme.bodyMedium!.copyWith(
-                    color: AppColor.buttonRadient2,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  title: "SEND NEW PASSWORD",
+                  function: () {},
                 ),
               ),
-              SizedBox(height: 24.h),
+              SizedBox(height: 40.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Row(
@@ -129,7 +76,7 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30.h),
+              SizedBox(height: 40.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -157,19 +104,22 @@ class LoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an account?  ",
+                    "Already have an account?  ",
                     style: theme.textTheme.bodyMedium!.copyWith(
                       color: Colors.grey,
                     ),
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacementNamed(
-                        AppPage.signUpPage,
+                      Navigator.pushReplacement<void, void>(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) => const LoginPage(),
+                        ),
                       );
                     },
                     child: Text(
-                      "Sign up",
+                      "Sign in",
                       style: theme.textTheme.bodyMedium!.copyWith(
                         color: AppColor.buttonRadient2,
                         fontWeight: FontWeight.w600,

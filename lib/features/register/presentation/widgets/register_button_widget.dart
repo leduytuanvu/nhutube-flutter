@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RegisterCustomButtonWidget extends StatelessWidget {
+class RegisterButtonWidget extends StatelessWidget {
   final Icon? icon;
-  const RegisterCustomButtonWidget({
+  const RegisterButtonWidget({
     super.key,
     required this.icon,
   });

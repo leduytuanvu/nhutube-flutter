@@ -1,0 +1,18 @@
+class AppPage {
+  AppPage._();
+
+  static const String splashPage = '/splashPage';
+  static const String signInPage = '/signInPage';
+  static const String startPage = '/startPage';
+  static const String signUpPage = '/signUpPage';
+  static const String forgotPasswordPage = '/forgotPasswordPage';
+  static const String fillProfilePage = '/fillProfilePage';
+  static const String homePage = '/homePage';
+  static const String bottomBarPage = '/bottomBarPage';
+  static const String searchPage = '/searchPage';
+  static const String profilePage = '/profilePage';
+  static const String messagePage = '/messagePage';
+  static const String viewOtherProfilePage = '/viewOtherProfilePage';
+  static const String createPostPage = '/createPostPage';
+  static const String notifyPage = '/notifyPage';
+}

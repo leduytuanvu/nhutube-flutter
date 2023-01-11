@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nhutube/core/configs/app_color.dart';
 
 class CustomTextFieldWidget extends StatefulWidget {
   final Key? textFieldKey;
@@ -101,7 +102,9 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                           _obscureText
                               ? Icons.visibility_off
                               : Icons.visibility,
-                          color: _obscureText ? Colors.black12 : Colors.blue,
+                          color: _obscureText
+                              ? Colors.black12
+                              : AppColor.buttonRadient2,
                         ),
                       )
                     : const SizedBox.shrink(),

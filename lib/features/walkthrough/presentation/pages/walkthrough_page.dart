@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nhutube/core/configs/app_color.dart';
 import 'package:nhutube/features/walkthrough/presentation/cubit/walkthrough_cubit.dart';
+import 'package:nhutube/router/app_page.dart';
 
 import '../../../../widgets/gradient_button_widget.dart';
-import '../../../login/presentation/pages/login_page.dart';
 
 class WalkthroughPage extends StatelessWidget {
   const WalkthroughPage({super.key});
@@ -77,12 +77,9 @@ class WalkthroughPage extends StatelessWidget {
                       height: 46.h,
                       function: () {
                         if (context.read<WalkthroughCubit>().index == 2) {
-                          Navigator.pushReplacement<void, void>(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) =>
-                                  const LoginPage(),
-                            ),
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                            AppPage.startPage,
+                            (Route<dynamic> route) => false,
                           );
                         } else {
                           context.read<WalkthroughCubit>().changeIndex();

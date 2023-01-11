@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nhutube/core/configs/app_color.dart';
-import 'package:nhutube/features/login/presentation/pages/login_page.dart';
-import 'package:nhutube/features/register/presentation/widgets/register_custom_button_widget.dart';
+import 'package:nhutube/features/register/presentation/widgets/register_button_widget.dart';
+import 'package:nhutube/router/app_page.dart';
 import 'package:nhutube/widgets/custom_text_field_widget.dart';
 import 'package:nhutube/widgets/gradient_button_widget.dart';
 
@@ -16,6 +16,14 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: theme.backgroundColor,
       body: SingleChildScrollView(
         child: Center(
@@ -46,19 +54,26 @@ class RegisterPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: const CustomTextFieldWidget(
                   icon: Icon(
-                    Icons.facebook,
+                    Icons.password,
                     color: Colors.black38,
                   ),
+                  isPassword: true,
                   hintText: "Password",
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 8.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Transform.scale(
                     scale: 1,
-                    child: Checkbox(value: true, onChanged: (value) {}),
+                    child: Checkbox(
+                      value: true,
+                      onChanged: (value) {},
+                      fillColor: MaterialStateProperty.all(
+                        AppColor.buttonRadient2,
+                      ),
+                    ),
                   ),
                   Text(
                     "Remember me",
@@ -70,7 +85,7 @@ class RegisterPage extends StatelessWidget {
               SizedBox(height: 10.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: GradientButtonWidget(title: "SIGN UP", function: () {}),
+                child: GradientButtonWidget(title: "Sign up", function: () {}),
               ),
               SizedBox(height: 40.h),
               Padding(
@@ -95,21 +110,21 @@ class RegisterPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const RegisterCustomButtonWidget(
+                  const RegisterButtonWidget(
                     icon: Icon(
                       Icons.facebook,
                       color: Colors.blue,
                     ),
                   ),
                   SizedBox(width: 18.w),
-                  const RegisterCustomButtonWidget(
+                  const RegisterButtonWidget(
                     icon: Icon(
                       Icons.email,
                       color: Colors.red,
                     ),
                   ),
                   SizedBox(width: 18.w),
-                  const RegisterCustomButtonWidget(
+                  const RegisterButtonWidget(
                     icon: Icon(Icons.apple),
                   ),
                 ],
@@ -126,11 +141,8 @@ class RegisterPage extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement<void, void>(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) => const LoginPage(),
-                        ),
+                      Navigator.of(context).pushReplacementNamed(
+                        AppPage.signInPage,
                       );
                     },
                     child: Text(
