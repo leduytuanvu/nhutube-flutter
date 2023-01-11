@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/configs/app_lottie.dart';
 
 part 'walkthrough_state.dart';

@@ -2,45 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:nhutube/core/configs/app_color.dart';
 import 'package:nhutube/features/walkthrough/presentation/cubit/walkthrough_cubit.dart';
 
 import '../../../../widgets/gradient_button_widget.dart';
+import '../../../login/presentation/pages/login_page.dart';
 
-class WalkthroughPage extends StatefulWidget {
+class WalkthroughPage extends StatelessWidget {
   const WalkthroughPage({super.key});
 
-  @override
-  State<WalkthroughPage> createState() => _WalkthroughPageState();
-}
-
-class _WalkthroughPageState extends State<WalkthroughPage> {
-  // _indicator(int index) {
-  //   return GestureDetector(
-  //     onTap: () {
-  //       // if (index == 2) {
-  //       //   setState(() {
-  //       //     _index = index;
-  //       //     _titleButton = "GET STARTED";
-  //       //   });
-  //       // } else if (index == 0 || index == 1) {
-  //       //   setState(() {
-  //       //     _index = index;
-  //       //     _titleButton = "NEXT";
-  //       //   });
-  //       // }
-  //     },
-  //     child: AnimatedContainer(
-  //       duration: const Duration(milliseconds: 300),
-  //       decoration: BoxDecoration(
-  //         color:
-  //             _index == index ? AppColor.buttonRadient2 : Colors.grey.shade300,
-  //         borderRadius: BorderRadius.circular(5.r),
-  //       ),
-  //       height: 8.h,
-  //       width: _index == index ? 40.w : 14.w,
-  //     ),
-  //   );
-  // }
+  _indicatorItem({required int index, required BuildContext context}) {
+    int currentIndex = context.read<WalkthroughCubit>().index;
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      decoration: BoxDecoration(
+        color: currentIndex == index
+            ? AppColor.buttonRadient2
+            : Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(100.r),
+      ),
+      height: 8.w,
+      width: currentIndex == index ? 30.w : 8.w,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,52 +52,44 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                     padding: EdgeInsets.all(16.w),
                     child: Text(
                       state.title,
-                      style: textTheme.titleMedium,
+                      style: textTheme.headlineMedium!.copyWith(height: 1.6),
                       textAlign: TextAlign.center,
                     ),
                   ),
                   SizedBox(height: 80.h),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     _indicator(0),
-                  //     sizedBoxHor(4.w),
-                  //     _indicator(1),
-                  //     sizedBoxHor(4.w),
-                  //     _indicator(2),
-                  //   ],
-                  // ),
-                  SizedBox(height: 80.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _indicatorItem(index: 0, context: context),
+                      const SizedBox(width: 4),
+                      _indicatorItem(index: 1, context: context),
+                      const SizedBox(width: 4),
+                      _indicatorItem(index: 2, context: context),
+                    ],
+                  ),
+                  SizedBox(height: 100.h),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: GradientButtonWidget(
-                      title: "_titleButton",
+                      title: context.read<WalkthroughCubit>().index == 2
+                          ? "GET STARTED"
+                          : "CONTINUE",
                       height: 46.h,
                       function: () {
-                        context.read<WalkthroughCubit>().changeIndex();
-                        // if (_index == 0) {
-                        //   setState(() {
-                        //     _index++;
-                        //     _titleButton = "CONTINUE";
-                        //   });
-                        // } else if (_index == 1) {
-                        //   setState(() {
-                        //     _index++;
-                        //     _titleButton = "GET STARTED";
-                        //   });
-                        // } else if (_index == 2) {
-                        //   Navigator.pushAndRemoveUntil(
-                        //     (context),
-                        //     MaterialPageRoute(
-                        //       builder: (context) => const LoginPage(),
-                        //     ),
-                        //     (route) => false,
-                        //   );
-                        // }
+                        if (context.read<WalkthroughCubit>().index == 2) {
+                          Navigator.pushReplacement<void, void>(
+                            context,
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context) =>
+                                  const LoginPage(),
+                            ),
+                          );
+                        } else {
+                          context.read<WalkthroughCubit>().changeIndex();
+                        }
                       },
                     ),
                   ),
-                  // Text("Theme : ${theme.isDart ? 'DARK' : 'LIGHT'}"),
                 ],
               );
             } else if (state is WalkthroughError) {
@@ -129,7 +105,6 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
     );
   }
 }
-
 
 // Text(
                 //   "Nhutube",

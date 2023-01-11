@@ -23,7 +23,18 @@ ThemeData lightTheme = ThemeData(
       fontWeight: FontWeight.w600,
     ),
     titleLarge: GoogleFonts.montserrat(
-      fontSize: 16.sp,
+      fontSize: 22.sp,
+      fontWeight: FontWeight.w600,
+    ),
+    headlineMedium: GoogleFonts.montserrat(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w400,
+      color: Colors.black87,
+    ),
+    headlineLarge: GoogleFonts.montserrat(
+      fontSize: 26.sp,
+      fontWeight: FontWeight.w600,
+      color: Colors.black87,
     ),
   ),
 );

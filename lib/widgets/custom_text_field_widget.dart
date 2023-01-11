@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../core/configs/app_color.dart';
-
 class CustomTextFieldWidget extends StatefulWidget {
   final Key? textFieldKey;
   final TextEditingController? controller;
   final bool? isPassword;
   final String? hintText;
+  final Icon? icon;
   final String? errorText;
   final String? helperText;
   final FormFieldSetter<String>? onSaved;
@@ -24,6 +23,7 @@ class CustomTextFieldWidget extends StatefulWidget {
     this.isPassword = false,
     this.hintText,
     this.errorText,
+    this.icon,
     this.helperText,
     this.onSaved,
     this.validator,
@@ -44,7 +44,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
       width: double.infinity,
       height: widget.height!.h,
       decoration: BoxDecoration(
-        color: AppColor.secondary,
+        color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: Center(
@@ -52,6 +52,10 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
           padding: EdgeInsets.symmetric(horizontal: 6.w),
           child: Row(
             children: [
+              widget.icon != null
+                  ? SizedBox(width: 6.w)
+                  : const SizedBox.shrink(),
+              widget.icon != null ? widget.icon! : const SizedBox.shrink(),
               Expanded(
                 child: TextFormField(
                   style: GoogleFonts.montserrat(
