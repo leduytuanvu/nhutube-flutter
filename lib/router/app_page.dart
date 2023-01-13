@@ -6,7 +6,9 @@ class AppPage {
   static const String startPage = '/startPage';
   static const String signUpPage = '/signUpPage';
   static const String forgotPasswordPage = '/forgotPasswordPage';
+  static const String setFingerprintPage = '/setFingerprintPage';
   static const String fillProfilePage = '/fillProfilePage';
+  static const String createNewPinPage = '/createNewPinPage';
   static const String homePage = '/homePage';
   static const String bottomBarPage = '/bottomBarPage';
   static const String searchPage = '/searchPage';

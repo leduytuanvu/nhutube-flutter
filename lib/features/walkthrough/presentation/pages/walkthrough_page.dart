@@ -72,9 +72,9 @@ class WalkthroughPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: GradientButtonWidget(
                       title: context.read<WalkthroughCubit>().index == 2
-                          ? "GET STARTED"
-                          : "CONTINUE",
-                      height: 46.h,
+                          ? "Get started"
+                          : "Continue",
+                      height: 50.h,
                       function: () {
                         if (context.read<WalkthroughCubit>().index == 2) {
                           Navigator.of(context).pushNamedAndRemoveUntil(

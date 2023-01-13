@@ -49,11 +49,12 @@ class ForgorPasswordPage extends StatelessWidget {
                   hintText: "Email",
                 ),
               ),
-              SizedBox(height: 16.h),
+              SizedBox(height: 22.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: GradientButtonWidget(
-                  title: "SEND NEW PASSWORD",
+                  height: 50.h,
+                  title: "Send new password",
                   function: () {},
                 ),
               ),

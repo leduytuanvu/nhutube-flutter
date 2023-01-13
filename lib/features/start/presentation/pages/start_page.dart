@@ -70,6 +70,7 @@ class StartPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: GradientButtonWidget(
+                    height: 50.h,
                     title: "Sign in with password",
                     function: () {
                       Navigator.of(context).pushNamed(AppPage.signInPage);

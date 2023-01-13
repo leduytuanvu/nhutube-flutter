@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nhutube/features/fill_profile/presentation/cubit/fill_profile_cubit.dart';
 import 'package:nhutube/features/forgot_password/presentation/cubit/forgot_password_cubit.dart';
-import 'package:nhutube/features/splash/presentation/pages/splash_page.dart';
+import 'package:nhutube/features/set_fingerprint/presentation/pages/set_fingerprint_page.dart';
 import 'package:nhutube/features/start/presentation/cubit/start_cubit.dart';
 import 'package:nhutube/features/walkthrough/presentation/cubit/walkthrough_cubit.dart';
 import 'package:nhutube/localization/app_localization.dart';
@@ -76,7 +76,8 @@ class Nhutube extends StatelessWidget {
                     theme: stateTheme is ThemeLoaded
                         ? stateTheme.theme
                         : darkTheme,
-                    home: const SplashPage(),
+                    // home: const SplashPage(),
+                    home: const SetFingerprintPage(),
                     scrollBehavior: const ScrollBehavior().copyWith(
                       overscroll: false,
                     ),

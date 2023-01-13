@@ -85,7 +85,11 @@ class RegisterPage extends StatelessWidget {
               SizedBox(height: 10.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: GradientButtonWidget(title: "Sign up", function: () {}),
+                child: GradientButtonWidget(
+                  height: 50.h,
+                  title: "Sign up",
+                  function: () {},
+                ),
               ),
               SizedBox(height: 40.h),
               Padding(

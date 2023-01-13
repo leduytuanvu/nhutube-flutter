@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nhutube/core/configs/app_color.dart';
+import 'package:nhutube/router/app_page.dart';
 import 'package:nhutube/widgets/custom_text_field_widget.dart';
 import 'package:nhutube/widgets/gradient_button_widget.dart';
 
@@ -25,14 +26,14 @@ class FillProfilePage extends StatelessWidget {
             color: Colors.black,
           ),
           backgroundColor: Colors.white,
-          elevation: 0,
+          elevation: 0.2,
           title: Text(
             "Fill Your Profile",
             style: theme.textTheme.bodyLarge!.copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),
-          // centerTitle: true,
+          centerTitle: true,
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -172,13 +173,14 @@ class FillProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: 40.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(width: 16.w),
                     Expanded(
                       child: GradientButtonWidget(
+                        height: 50.h,
                         title: "Skip",
                         function: () {},
                       ),
@@ -186,8 +188,13 @@ class FillProfilePage extends StatelessWidget {
                     SizedBox(width: 8.w),
                     Expanded(
                       child: GradientButtonWidget(
+                        height: 50.h,
                         title: "Continue",
-                        function: () {},
+                        function: () {
+                          Navigator.of(context).pushNamed(
+                            AppPage.createNewPinPage,
+                          );
+                        },
                       ),
                     ),
                     SizedBox(width: 16.w),

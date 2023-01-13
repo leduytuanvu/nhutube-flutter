@@ -87,14 +87,16 @@ class LoginPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: GradientButtonWidget(
-                    title: "Sign in",
-                    function: () {
-                      // Navigator.of(context).pushNamedAndRemoveUntil(
-                      //   AppPage.fillProfilePage,
-                      //   (route) => false,
-                      // );
-                      Navigator.of(context).pushNamed(AppPage.fillProfilePage);
-                    }),
+                  height: 50.h,
+                  title: "Sign in",
+                  function: () {
+                    // Navigator.of(context).pushNamedAndRemoveUntil(
+                    //   AppPage.fillProfilePage,
+                    //   (route) => false,
+                    // );
+                    Navigator.of(context).pushNamed(AppPage.fillProfilePage);
+                  },
+                ),
               ),
               SizedBox(height: 24.h),
               GestureDetector(
