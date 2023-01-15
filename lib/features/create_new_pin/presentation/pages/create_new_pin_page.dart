@@ -20,9 +20,9 @@ class CreateNewPinPage extends StatelessWidget {
         // extendBodyBehindAppBar: true,
         appBar: AppBar(
           iconTheme: const IconThemeData(
-            color: Colors.black,
+            color: Colors.white,
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: theme.backgroundColor,
           elevation: 0.2,
           title: Text(
             "Create New Pin",
@@ -66,8 +66,8 @@ class CreateNewPinPage extends StatelessWidget {
                     pinTheme: PinTheme(
                       shape: PinCodeFieldShape.box,
                       borderRadius: BorderRadius.circular(18.r),
-                      fieldHeight: 55,
-                      fieldWidth: 80,
+                      fieldHeight: 55.h,
+                      fieldWidth: 80.w,
                       activeFillColor: Colors.grey.shade200,
                       activeColor: Colors.grey.shade200,
                       selectedFillColor: AppColor.buttonRadient2,

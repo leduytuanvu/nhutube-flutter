@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: Colors.white,
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
               ),
               Text(
                 "Login to your account",
-                style: theme.textTheme.headlineLarge,
+                style: theme.textTheme.titleLarge,
               ),
               SizedBox(height: 40.h),
               Padding(

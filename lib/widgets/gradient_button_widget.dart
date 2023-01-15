@@ -60,7 +60,7 @@ class GradientButtonWidget extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: fontSize.sp,
                 fontWeight: FontWeight.w600,
-                color: Theme.of(context).backgroundColor,
+                color: Colors.black87,
               ),
             ),
           ),

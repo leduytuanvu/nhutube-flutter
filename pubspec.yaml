@@ -38,8 +38,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
-    - assets/icons/
     - assets/lotties/
     - assets/languages/en.json
     - assets/languages/vi.json

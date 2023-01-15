@@ -25,9 +25,9 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
         // extendBodyBehindAppBar: true,
         appBar: AppBar(
           iconTheme: const IconThemeData(
-            color: Colors.black,
+            color: Colors.white,
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: theme.backgroundColor,
           elevation: 0.2,
           title: Text(
             "Set Your Fingerprint",
@@ -107,8 +107,8 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
                                     Center(
                                       child: GestureDetector(
                                         onTap: () {},
-                                        child: Container(
-                                          color: Colors.pink,
+                                        child: SizedBox(
+                                          // color: Colors.pink,
                                           height: size.height * 0.6,
                                           width: size.width * 0.8,
                                           child: Stack(
@@ -119,32 +119,73 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
                                                 right: 0,
                                                 child: CustomPaint(
                                                   painter: DemoPainter(),
-                                                  size: Size(
-                                                    size.width * 0.8,
-                                                    size.height * 0.6,
+                                                  // size: Size(
+                                                  //   size.width * 0.8,
+                                                  //   size.height * 0.6,
+                                                  // ),
+                                                  child: SizedBox(
+                                                    height: size.height * 0.6,
+                                                    width: size.width * 0.8,
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        SizedBox(height: 50.h),
+                                                        Icon(
+                                                          Icons.account_circle,
+                                                          size: 120.sp,
+                                                          color: AppColor
+                                                              .buttonRadient3,
+                                                        ),
+                                                        SizedBox(height: 20.h),
+                                                        Text(
+                                                          "Congratolations!",
+                                                          style: theme.textTheme
+                                                              .bodyMedium!
+                                                              .copyWith(
+                                                            color: AppColor
+                                                                .buttonRadient3,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                            20.w,
+                                                          ),
+                                                          child: Text(
+                                                            "Your account is ready to use. You will be redirected to the home page in a few seconds",
+                                                            style: theme
+                                                                .textTheme
+                                                                .bodyMedium,
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 40.h),
+                                                        const CircularProgressIndicator(),
+                                                        SizedBox(height: 80.h),
+                                                      ],
+                                                    ),
                                                   ),
-                                                  // child: const Icon(Icons.home),
                                                 ),
                                                 // child: Icon(Icons.home),
                                               ),
-                                              // Positioned(
-                                              //   right: 0,
-                                              //   top: 0,
-                                              //   child: Container(
-                                              //     decoration: BoxDecoration(
-                                              //       borderRadius:
-                                              //           BorderRadius.circular(
-                                              //         100,
-                                              //       ),
-                                              //       color: Colors.white,
-                                              //     ),
-                                              //     height: 34.w,
-                                              //     width: 34.w,
-                                              //     child: const Icon(
-                                              //       Icons.close,
-                                              //     ),
-                                              //   ),
-                                              // ),
+                                              Positioned(
+                                                right: 7.w,
+                                                top: 6.w,
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: const Icon(
+                                                    Icons.close,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -185,36 +226,8 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
 class DemoPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // Paint paint = Paint()
-    //   ..color = Colors.red
-    //   ..style = PaintingStyle.fill
-    //   ..strokeWidth = 8.0;
-
-    // Path path = Path();
-
-    // path.addRRect(
-    //   RRect.fromRectAndRadius(
-    //     Rect.fromLTWH(0, size.height * 0.4, size.width, size.height * 0.6),
-    //     Radius.circular(16.r),
-    //   ),
-    // );
-
-    // Paint paint0Fill = Paint()..style = PaintingStyle.fill;
-    // paint0Fill.color =
-    //     const Color.fromRGBO(216, 216, 216, 1.0).withOpacity(1.0);
-    // canvas.drawRRect(
-    //     RRect.fromRectAndCorners(
-    //       Rect.fromLTWH(0, 0, size.width, size.height),
-    //       bottomRight: Radius.circular(size.width * 0.03),
-    //       bottomLeft: Radius.circular(size.width * 0.03),
-    //       topLeft: Radius.circular(size.width * 0.03),
-    //       topRight: Radius.circular(size.width * 0.03),
-    //     ),
-    //     paint0Fill);
-
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
-    paint0Fill.color =
-        const Color.fromRGBO(216, 216, 216, 1.0).withOpacity(1.0);
+    paint0Fill.color = const Color.fromARGB(255, 41, 41, 41).withOpacity(1.0);
     canvas.drawRRect(
       RRect.fromRectAndCorners(
         Rect.fromLTWH(0, 0, size.width, size.height),
@@ -226,17 +239,17 @@ class DemoPainter extends CustomPainter {
       paint0Fill,
     );
 
-    Paint paint1Stroke = Paint()
-      ..style = PaintingStyle.fill
-      ..strokeWidth = 2;
-    paint1Stroke.color = const Color.fromARGB(255, 0, 0, 0).withOpacity(0.1);
-    canvas.drawOval(
-        Rect.fromCenter(
-          center: Offset(size.width - 4, 5),
-          width: size.width * 0.12,
-          height: size.width * 0.12,
-        ),
-        paint1Stroke);
+    // Paint paint1Stroke = Paint()
+    //   ..style = PaintingStyle.fill
+    //   ..strokeWidth = 2;
+    // paint1Stroke.color = const Color.fromARGB(255, 0, 0, 0).withOpacity(0.1);
+    // canvas.drawOval(
+    //     Rect.fromCenter(
+    //       center: Offset(size.width - 4, 5),
+    //       width: size.width * 0.12,
+    //       height: size.width * 0.12,
+    //     ),
+    //     paint1Stroke);
 
     // Paint paint1Fill = Paint()..style = PaintingStyle.fill;
     // paint1Fill.color = const Color(0xff000000).withOpacity(1.0);

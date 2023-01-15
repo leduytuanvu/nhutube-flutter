@@ -26,8 +26,8 @@ class StartPage extends StatelessWidget {
                   width: 250.w,
                 ),
                 Text(
-                  "Let's you in",
-                  style: textTheme.headlineLarge,
+                  "Wellcome to Nhutube",
+                  style: textTheme.titleLarge,
                 ),
                 SizedBox(height: 40.h),
                 StartButtonWidget(

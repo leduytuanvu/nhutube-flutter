@@ -52,7 +52,7 @@ class WalkthroughPage extends StatelessWidget {
                     padding: EdgeInsets.all(16.w),
                     child: Text(
                       state.title,
-                      style: textTheme.headlineMedium!.copyWith(height: 1.6),
+                      style: textTheme.titleLarge!.copyWith(height: 1.6),
                       textAlign: TextAlign.center,
                     ),
                   ),

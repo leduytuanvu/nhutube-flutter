@@ -23,9 +23,9 @@ class FillProfilePage extends StatelessWidget {
         // extendBodyBehindAppBar: true,
         appBar: AppBar(
           iconTheme: const IconThemeData(
-            color: Colors.black,
+            color: Colors.white,
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: theme.backgroundColor,
           elevation: 0.2,
           title: Text(
             "Fill Your Profile",

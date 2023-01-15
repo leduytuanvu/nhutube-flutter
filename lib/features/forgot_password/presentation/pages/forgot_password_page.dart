@@ -19,7 +19,7 @@ class ForgorPasswordPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: Colors.white,
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -36,7 +36,7 @@ class ForgorPasswordPage extends StatelessWidget {
               ),
               Text(
                 "Forgot your password",
-                style: theme.textTheme.headlineLarge,
+                style: theme.textTheme.titleLarge,
               ),
               SizedBox(height: 40.h),
               Padding(
