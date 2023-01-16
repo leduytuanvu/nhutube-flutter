@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nhutube/features/bottom_bar/presentation/cubit/bottom_bar_cubit.dart';
 import 'package:nhutube/features/fill_profile/presentation/cubit/fill_profile_cubit.dart';
 import 'package:nhutube/features/forgot_password/presentation/cubit/forgot_password_cubit.dart';
 import 'package:nhutube/features/splash/presentation/pages/splash_page.dart';
@@ -41,6 +42,9 @@ class Nhutube extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => FillProfileCubit(),
+        ),
+        BlocProvider(
+          create: (context) => BottomBarCubit(),
         ),
       ],
       child: ScreenUtilInit(

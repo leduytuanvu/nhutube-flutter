@@ -25,9 +25,14 @@ class StartPage extends StatelessWidget {
                   height: 250.w,
                   width: 250.w,
                 ),
-                Text(
-                  "Wellcome to Nhutube",
-                  style: textTheme.titleLarge,
+                GestureDetector(
+                  onTap: () {
+                    // Navigator.of(context).pushNamed(AppPage.bottomBarPage);
+                  },
+                  child: Text(
+                    "Wellcome to Nhutube",
+                    style: textTheme.titleLarge,
+                  ),
                 ),
                 SizedBox(height: 40.h),
                 StartButtonWidget(

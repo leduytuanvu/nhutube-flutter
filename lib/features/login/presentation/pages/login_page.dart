@@ -17,13 +17,7 @@ class LoginPage extends StatelessWidget {
     var theme = Theme.of(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      appBar: AppBar(),
       backgroundColor: theme.backgroundColor,
       body: SingleChildScrollView(
         child: Center(

@@ -24,11 +24,6 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
         backgroundColor: theme.backgroundColor,
         // extendBodyBehindAppBar: true,
         appBar: AppBar(
-          iconTheme: const IconThemeData(
-            color: Colors.white,
-          ),
-          backgroundColor: theme.backgroundColor,
-          elevation: 0.2,
           title: Text(
             "Set Your Fingerprint",
             style: theme.textTheme.bodyLarge!.copyWith(
@@ -138,7 +133,7 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
                                                           color: AppColor
                                                               .buttonRadient3,
                                                         ),
-                                                        SizedBox(height: 20.h),
+                                                        SizedBox(height: 28.h),
                                                         Text(
                                                           "Congratolations!",
                                                           style: theme.textTheme
@@ -150,6 +145,7 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
                                                                 FontWeight.bold,
                                                           ),
                                                         ),
+                                                        SizedBox(height: 10.h),
                                                         Padding(
                                                           padding:
                                                               EdgeInsets.all(
@@ -159,13 +155,19 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
                                                             "Your account is ready to use. You will be redirected to the home page in a few seconds",
                                                             style: theme
                                                                 .textTheme
-                                                                .bodyMedium,
+                                                                .bodyMedium!
+                                                                .copyWith(
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
                                                             textAlign: TextAlign
                                                                 .center,
                                                           ),
                                                         ),
                                                         SizedBox(height: 40.h),
-                                                        const CircularProgressIndicator(),
+                                                        const CircularProgressIndicator(
+                                                          color: Colors.white,
+                                                        ),
                                                         SizedBox(height: 80.h),
                                                       ],
                                                     ),

@@ -5,6 +5,13 @@ import 'package:nhutube/core/configs/app_color.dart';
 
 ThemeData lightTheme = ThemeData(
   backgroundColor: AppColor.lightPrimary,
+  appBarTheme: AppBarTheme(
+    iconTheme: IconThemeData(
+      color: AppColor.darkPrimary,
+    ),
+    backgroundColor: Colors.transparent,
+    elevation: 0,
+  ),
   textTheme: TextTheme(
     bodySmall: GoogleFonts.montserrat(
       fontSize: 12.sp,
@@ -41,6 +48,13 @@ ThemeData lightTheme = ThemeData(
 
 ThemeData darkTheme = ThemeData(
   backgroundColor: AppColor.darkPrimary,
+  appBarTheme: AppBarTheme(
+    iconTheme: IconThemeData(
+      color: AppColor.lightPrimary,
+    ),
+    backgroundColor: Colors.transparent,
+    elevation: 0,
+  ),
   textTheme: TextTheme(
     bodySmall: GoogleFonts.montserrat(
       fontSize: 12.sp,

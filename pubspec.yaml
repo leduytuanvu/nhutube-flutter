@@ -39,5 +39,6 @@ flutter:
 
   assets:
     - assets/lotties/
+    - assets/svgs/
     - assets/languages/en.json
     - assets/languages/vi.json

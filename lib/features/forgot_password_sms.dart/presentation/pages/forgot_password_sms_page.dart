@@ -1,88 +1,98 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 import 'package:nhutube/core/configs/app_color.dart';
+import 'package:nhutube/features/login/presentation/pages/login_page.dart';
 import 'package:nhutube/features/register/presentation/widgets/register_button_widget.dart';
-import 'package:nhutube/router/app_page.dart';
-import 'package:nhutube/widgets/custom_text_field_widget.dart';
 import 'package:nhutube/widgets/gradient_button_widget.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../../../../core/configs/app_lottie.dart';
+import '../../../../router/app_page.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class ForgorPasswordSmsPage extends StatelessWidget {
+  const ForgorPasswordSmsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          "Forgot Password",
+          style: theme.textTheme.bodyLarge!.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+      ),
       backgroundColor: theme.backgroundColor,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              Lottie.asset(
-                AppLottie.walkthrough1,
-                height: 250.w,
-                width: 250.w,
-              ),
+              SizedBox(height: 140.h),
               Text(
-                "Create your account",
-                style: theme.textTheme.titleLarge,
+                "Code has been send to +84961191732",
+                style: theme.textTheme.bodyMedium,
+                textAlign: TextAlign.center,
               ),
               SizedBox(height: 40.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: const CustomTextFieldWidget(
-                  icon: Icon(
-                    Icons.email,
-                    color: Colors.black38,
+                padding: EdgeInsets.all(16.w),
+                child: PinCodeTextField(
+                  cursorColor: Colors.black87,
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  // textStyle: TextStyle(fontSize: 40.sp),
+                  autoFocus: true,
+                  cursorHeight: 22.h,
+                  appContext: context,
+                  length: 4,
+                  obscureText: true,
+                  animationType: AnimationType.fade,
+                  keyboardType: TextInputType.number,
+                  scrollPadding: EdgeInsets.zero,
+                  errorTextSpace: 0,
+
+                  pinTheme: PinTheme(
+                    shape: PinCodeFieldShape.box,
+                    borderRadius: BorderRadius.circular(18.r),
+                    fieldHeight: 55.h,
+                    fieldWidth: 80.w,
+                    activeFillColor: Colors.grey.shade200,
+                    activeColor: Colors.grey.shade200,
+                    selectedFillColor: AppColor.buttonRadient2,
+                    selectedColor: AppColor.buttonRadient2,
+                    inactiveColor: Colors.grey.shade200,
+                    inactiveFillColor: Colors.grey.shade200,
                   ),
-                  hintText: "Email",
+                  animationDuration: const Duration(milliseconds: 300),
+                  // backgroundColor: Colors.blue.shade50,
+                  enableActiveFill: true,
+                  // errorAnimationController: errorController,
+                  // controller: textController,
+                  onCompleted: (v) {
+                    log("Completed");
+                  },
+                  onChanged: (value) {},
+                  beforeTextPaste: (text) {
+                    log("Allowing to paste $text");
+                    //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                    //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                    return true;
+                  },
                 ),
               ),
-              SizedBox(height: 10.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: const CustomTextFieldWidget(
-                  icon: Icon(
-                    Icons.password,
-                    color: Colors.black38,
-                  ),
-                  isPassword: true,
-                  hintText: "Password",
-                ),
-              ),
-              SizedBox(height: 8.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Transform.scale(
-                    scale: 1,
-                    child: Checkbox(
-                      value: true,
-                      onChanged: (value) {},
-                      fillColor: MaterialStateProperty.all(
-                        AppColor.buttonRadient2,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "Remember me",
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                  SizedBox(width: 16.w),
-                ],
-              ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 30.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: GradientButtonWidget(
                   height: 50.h,
-                  title: "Sign up",
-                  function: () {},
+                  title: "Verify",
+                  function: () {
+                    Navigator.pushNamed(context, AppPage.createNewPasswordPage);
+                  },
                 ),
               ),
               SizedBox(height: 40.h),
@@ -93,7 +103,7 @@ class RegisterPage extends StatelessWidget {
                     const Expanded(child: Divider()),
                     SizedBox(width: 8.w),
                     Text(
-                      "Or coppy with",
+                      "Or login with",
                       style: theme.textTheme.bodyMedium!.copyWith(
                         color: Colors.black26,
                         fontSize: 13.sp,
@@ -139,8 +149,11 @@ class RegisterPage extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacementNamed(
-                        AppPage.signInPage,
+                      Navigator.pushReplacement<void, void>(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) => const LoginPage(),
+                        ),
                       );
                     },
                     child: Text(

@@ -40,11 +40,19 @@ class WalkthroughPage extends StatelessWidget {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    child: Lottie.asset(
-                      state.lottiePath,
-                      height: 250.w,
-                      width: 250.w,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        AppPage.bottomBarPage,
+                        (route) => false,
+                      );
+                    },
+                    child: Container(
+                      child: Lottie.asset(
+                        state.lottiePath,
+                        height: 250.w,
+                        width: 250.w,
+                      ),
                     ),
                   ),
                   SizedBox(height: 50.h),

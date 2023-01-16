@@ -19,11 +19,6 @@ class CreateNewPinPage extends StatelessWidget {
         backgroundColor: theme.backgroundColor,
         // extendBodyBehindAppBar: true,
         appBar: AppBar(
-          iconTheme: const IconThemeData(
-            color: Colors.white,
-          ),
-          backgroundColor: theme.backgroundColor,
-          elevation: 0.2,
           title: Text(
             "Create New Pin",
             style: theme.textTheme.bodyLarge!.copyWith(
