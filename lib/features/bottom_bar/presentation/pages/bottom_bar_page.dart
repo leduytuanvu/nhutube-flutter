@@ -77,22 +77,22 @@ class BottomBarPage extends StatelessWidget {
                         IconBottomWidget(
                           index: 1,
                           icon: AppSvg.movie,
-                          lable: 'Search',
+                          lable: 'Short Video',
                         ),
                         IconBottomWidget(
                           index: 2,
                           icon: AppSvg.plus,
-                          lable: 'Message',
+                          lable: 'Add New',
                         ),
                         IconBottomWidget(
                           index: 3,
                           icon: AppSvg.subscript,
-                          lable: 'Home',
+                          lable: 'Sub Script',
                         ),
                         IconBottomWidget(
                           index: 4,
                           icon: AppSvg.library,
-                          lable: 'Profile',
+                          lable: 'Library',
                         ),
                       ],
                     ),

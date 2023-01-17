@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nhutube/core/configs/app_color.dart';
+import 'package:nhutube/features/home/presentation/widgets/video_item_widget.dart';
+import 'package:nhutube/features/home/presentation/widgets/video_title_widget.dart';
 
 import '../../../../core/configs/app_svg.dart';
+import '../../../../router/app_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,38 +26,49 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: theme.backgroundColor,
         appBar: AppBar(
+          toolbarHeight: 116.h,
           // backgroundColor: Colors.grey,
           titleSpacing: 0,
-          title: Row(
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              SizedBox(width: 14.w),
-              SvgPicture.asset(
-                AppSvg.leadingHome,
-                color: AppColor.buttonRadient3,
-                height: 32.w,
-                width: 32.w,
+              Row(
+                children: [
+                  SizedBox(width: 16.w),
+                  SvgPicture.asset(
+                    AppSvg.leadingHome,
+                    color: AppColor.buttonRadient3,
+                    height: 32.w,
+                    width: 32.w,
+                  ),
+                  SizedBox(width: 6.w),
+                  Text(
+                    "nhutube",
+                    style: theme.textTheme.bodyLarge!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, AppPage.searchPage);
+                    },
+                    child: const Icon(Icons.search),
+                  ),
+                  SizedBox(width: 14.w),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, AppPage.notificationPage);
+                    },
+                    child: const Icon(Icons.notifications),
+                  ),
+                  SizedBox(width: 14.w),
+                  const Icon(Icons.account_circle),
+                  SizedBox(width: 16.w),
+                ],
               ),
-              SizedBox(width: 6.w),
-              Text(
-                "nhutube",
-                style: theme.textTheme.bodyLarge!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Spacer(),
-              const Icon(Icons.search),
-              SizedBox(width: 14.w),
-              const Icon(Icons.notifications),
-              SizedBox(width: 14.w),
-              const Icon(Icons.account_circle),
-              SizedBox(width: 14.w),
-            ],
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 10.h),
+              SizedBox(height: 14.h),
               SizedBox(
                 height: 34.h,
                 // color: Colors.red,
@@ -64,8 +78,8 @@ class HomePage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.only(
-                        left: index == 0 ? 14.w : 8.w,
-                        right: index == listCategory.length - 1 ? 14.w : 0.w,
+                        left: index == 0 ? 16.w : 8.w,
+                        right: index == listCategory.length - 1 ? 16.w : 0.w,
                       ),
                       child: Container(
                         decoration: BoxDecoration(
@@ -81,6 +95,9 @@ class HomePage extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 16.w),
                             child: Text(
                               listCategory[index],
+                              style: theme.textTheme.bodyMedium!.copyWith(
+                                color: AppColor.buttonRadient3,
+                              ),
                             ),
                           ),
                         ),
@@ -89,74 +106,24 @@ class HomePage extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 8.h),
-              Padding(
-                padding: EdgeInsets.all(14.0.w),
-                child: Stack(
-                  children: [
-                    Container(
-                      height: 220.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.r),
-                        color: Colors.red,
-                        image: const DecorationImage(
-                          image: NetworkImage(
-                              "https://apastyle.apa.org/images/reference-cat_tcm11-268960_w1024_n.jpg"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 16.w,
-                      right: 18.w,
-                      child: Container(
-                        height: 26.h,
-                        width: 46.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6.r),
-                          color: Colors.black54,
-                        ),
-                        child: Center(
-                          child: Text(
-                            "15:27",
-                            style: theme.textTheme.bodyMedium!.copyWith(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+            ],
+          ),
+        ),
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              // SizedBox(height: 14.h),
+              for (int i = 0; i < 10; i++) ...{
+                const VideoItemWidget(
+                  image:
+                      "https://apastyle.apa.org/images/reference-cat_tcm11-268960_w1024_n.jpg",
+                  time: "14:34",
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 14.w),
-                child: Container(
-                  height: 80.h,
-                  color: Colors.green,
-                  child: Row(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(100.r),
-                        child: Image.network(
-                          "https://media.istockphoto.com/id/113553655/fr/photo/britannique-chat-%C3%A0-poils-ras-8-mois-sur-fond-blanc.jpg?s=170667a&w=0&k=20&c=i3LMB8_ZXnJn1CzK0eBacPeHIlP86xjqKZX2qfTchzU=",
-                          fit: BoxFit.cover,
-                          height: 50.h,
-                          width: 50.h,
-                        ),
-                      ),
-                      Column(
-                        children: const [
-                          Text(
-                            "Cat Island | Beautiful Animals That Can't Be Touched by Humgary so they can eat more food come from usa, japane or vietnam",
-                            maxLines: 2,
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
+                const VideoTitleWidget(avatar: "avatar"),
+                SizedBox(height: 14.h),
+              },
+              SizedBox(height: 80.h),
             ],
           ),
         ),

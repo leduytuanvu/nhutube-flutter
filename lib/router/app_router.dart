@@ -6,12 +6,14 @@ import 'package:nhutube/features/forgot_password/presentation/pages/forgot_passw
 import 'package:nhutube/features/forgot_password_sms.dart/presentation/pages/forgot_password_sms_page.dart';
 import 'package:nhutube/features/home/presentation/pages/home_page.dart';
 import 'package:nhutube/features/login/presentation/pages/login_page.dart';
+import 'package:nhutube/features/notification/presentation/pages/notification_page.dart';
 import 'package:nhutube/features/register/presentation/pages/register_page.dart';
 import 'package:nhutube/features/set_fingerprint/presentation/pages/set_fingerprint_page.dart';
 import 'package:nhutube/features/start/presentation/pages/start_page.dart';
 import 'package:nhutube/router/app_page.dart';
 import '../features/bottom_bar/presentation/pages/bottom_bar_page.dart';
 import '../features/forgot_password_email/presentation/pages/forgot_password_email_page.dart';
+import '../features/search/presentation/pages/search_page.dart';
 import '../features/splash/presentation/pages/splash_page.dart';
 
 class AppRouter {
@@ -45,6 +47,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const BottomBarPage());
       case AppPage.homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
+      case AppPage.notificationPage:
+        return MaterialPageRoute(builder: (_) => const NotificationPage());
+      case AppPage.searchPage:
+        return MaterialPageRoute(builder: (_) => const SearchPage());
       default:
         return MaterialPageRoute(builder: (_) => const SplashPage());
     }
