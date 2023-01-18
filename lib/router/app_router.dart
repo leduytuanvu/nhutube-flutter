@@ -15,6 +15,7 @@ import '../features/bottom_bar/presentation/pages/bottom_bar_page.dart';
 import '../features/forgot_password_email/presentation/pages/forgot_password_email_page.dart';
 import '../features/search/presentation/pages/search_page.dart';
 import '../features/splash/presentation/pages/splash_page.dart';
+import '../features/video_detail/presentation/pages/video_detail_page.dart';
 
 class AppRouter {
   MaterialPageRoute onGenerateRoute(RouteSettings routeSettings) {
@@ -51,6 +52,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const NotificationPage());
       case AppPage.searchPage:
         return MaterialPageRoute(builder: (_) => const SearchPage());
+      case AppPage.videoDetailPage:
+        return MaterialPageRoute(builder: (_) => const VideoDetailPage());
       default:
         return MaterialPageRoute(builder: (_) => const SplashPage());
     }

@@ -15,6 +15,7 @@ class AppPage {
   static const String homePage = '/homePage';
   static const String bottomBarPage = '/bottomBarPage';
   static const String searchPage = '/searchPage';
+  static const String videoDetailPage = '/videoDetailPage';
   static const String notificationPage = '/notificationPage';
   static const String messagePage = '/messagePage';
   static const String viewOtherProfilePage = '/viewOtherProfilePage';

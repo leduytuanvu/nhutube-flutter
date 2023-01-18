@@ -15,8 +15,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     List<String> listCategory = [
-      "Trending",
       "All",
+      "Trending",
       "For you",
       "Woman",
       "Man",
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100.r),
-                          // color: AppColor.buttonRadient3,
+                          color: index == 0 ? AppColor.buttonRadient3 : null,
                           border: Border.all(
                             color: AppColor.buttonRadient3,
                             width: 1.w,
@@ -96,7 +96,9 @@ class HomePage extends StatelessWidget {
                             child: Text(
                               listCategory[index],
                               style: theme.textTheme.bodyMedium!.copyWith(
-                                color: AppColor.buttonRadient3,
+                                color: index == 0
+                                    ? Colors.white
+                                    : AppColor.buttonRadient3,
                               ),
                             ),
                           ),
