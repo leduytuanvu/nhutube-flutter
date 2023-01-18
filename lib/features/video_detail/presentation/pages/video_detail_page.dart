@@ -3,6 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nhutube/widgets/custom_text_field_widget.dart';
 import 'package:nhutube/widgets/gradient_button_widget.dart';
 
+import '../../../home/presentation/widgets/video_item_widget.dart';
+import '../../../home/presentation/widgets/video_title_widget.dart';
+
 class VideoDetailPage extends StatelessWidget {
   const VideoDetailPage({super.key});
 
@@ -236,7 +239,18 @@ class VideoDetailPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: 8.w),
+              for (int i = 0; i < 10; i++) ...{
+                const VideoItemWidget(
+                  image:
+                      "https://apastyle.apa.org/images/reference-cat_tcm11-268960_w1024_n.jpg",
+                  time: "14:34",
+                ),
+                const VideoTitleWidget(avatar: "avatar"),
+                SizedBox(height: 14.h),
+              },
+              SizedBox(height: 40.w),
             ],
           ),
         ),

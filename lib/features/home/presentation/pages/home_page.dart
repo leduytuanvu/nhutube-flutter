@@ -64,7 +64,12 @@ class HomePage extends StatelessWidget {
                     child: const Icon(Icons.notifications),
                   ),
                   SizedBox(width: 14.w),
-                  const Icon(Icons.account_circle),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, AppPage.profilePage);
+                    },
+                    child: const Icon(Icons.account_circle),
+                  ),
                   SizedBox(width: 16.w),
                 ],
               ),

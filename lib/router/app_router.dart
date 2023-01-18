@@ -7,6 +7,7 @@ import 'package:nhutube/features/forgot_password_sms.dart/presentation/pages/for
 import 'package:nhutube/features/home/presentation/pages/home_page.dart';
 import 'package:nhutube/features/login/presentation/pages/login_page.dart';
 import 'package:nhutube/features/notification/presentation/pages/notification_page.dart';
+import 'package:nhutube/features/profile/presentation/pages/profile_page.dart';
 import 'package:nhutube/features/register/presentation/pages/register_page.dart';
 import 'package:nhutube/features/set_fingerprint/presentation/pages/set_fingerprint_page.dart';
 import 'package:nhutube/features/start/presentation/pages/start_page.dart';
@@ -54,6 +55,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SearchPage());
       case AppPage.videoDetailPage:
         return MaterialPageRoute(builder: (_) => const VideoDetailPage());
+      case AppPage.profilePage:
+        return MaterialPageRoute(builder: (_) => const ProfilePage());
       default:
         return MaterialPageRoute(builder: (_) => const SplashPage());
     }
