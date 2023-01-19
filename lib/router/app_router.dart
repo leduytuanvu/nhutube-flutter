@@ -4,6 +4,7 @@ import 'package:nhutube/features/create_new_pin/presentation/pages/create_new_pi
 import 'package:nhutube/features/fill_profile/presentation/pages/fill_profile_page.dart';
 import 'package:nhutube/features/forgot_password/presentation/pages/forgot_password_page.dart';
 import 'package:nhutube/features/forgot_password_sms.dart/presentation/pages/forgot_password_sms_page.dart';
+import 'package:nhutube/features/history/presentation/pages/history_page.dart';
 import 'package:nhutube/features/home/presentation/pages/home_page.dart';
 import 'package:nhutube/features/login/presentation/pages/login_page.dart';
 import 'package:nhutube/features/notification/presentation/pages/notification_page.dart';
@@ -11,6 +12,7 @@ import 'package:nhutube/features/profile/presentation/pages/profile_page.dart';
 import 'package:nhutube/features/register/presentation/pages/register_page.dart';
 import 'package:nhutube/features/set_fingerprint/presentation/pages/set_fingerprint_page.dart';
 import 'package:nhutube/features/start/presentation/pages/start_page.dart';
+import 'package:nhutube/features/your_video/presentation/pages/your_video_page.dart';
 import 'package:nhutube/router/app_page.dart';
 import '../features/bottom_bar/presentation/pages/bottom_bar_page.dart';
 import '../features/forgot_password_email/presentation/pages/forgot_password_email_page.dart';
@@ -57,6 +59,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const VideoDetailPage());
       case AppPage.profilePage:
         return MaterialPageRoute(builder: (_) => const ProfilePage());
+      case AppPage.historyPage:
+        return MaterialPageRoute(builder: (_) => const HistoryPage());
+      case AppPage.yourVideoPage:
+        return MaterialPageRoute(builder: (_) => const YourVideoyPage());
       default:
         return MaterialPageRoute(builder: (_) => const SplashPage());
     }
