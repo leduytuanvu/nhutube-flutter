@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nhutube/core/configs/app_color.dart';
 import 'package:nhutube/widgets/gradient_button_widget.dart';
 
+import '../../../../router/app_page.dart';
+
 class SetFingerprintPage extends StatefulWidget {
   const SetFingerprintPage({super.key});
 
@@ -47,10 +49,12 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
                   ),
                 ),
                 SizedBox(height: 60.h),
-                Icon(
-                  Icons.fingerprint,
-                  size: 220.sp,
-                  color: AppColor.buttonRadient2,
+                GestureDetector(
+                  child: Icon(
+                    Icons.fingerprint,
+                    size: 220.sp,
+                    color: AppColor.buttonRadient2,
+                  ),
                 ),
                 SizedBox(height: 60.h),
                 Padding(
@@ -78,7 +82,7 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
                         child: GradientButtonWidget(
                           height: 50.h,
                           title: "Continue",
-                          function: () {
+                          function: () async {
                             showDialog<void>(
                               context: context,
                               // barrierDismissible: false, // user must tap button!
@@ -209,6 +213,11 @@ class _SetFingerprintPageState extends State<SetFingerprintPage> {
                                   ],
                                 );
                               },
+                            );
+                            await Future.delayed(const Duration(seconds: 3));
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                              AppPage.bottomBarPage,
+                              (route) => false,
                             );
                           },
                         ),
