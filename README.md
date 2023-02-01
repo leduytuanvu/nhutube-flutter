@@ -1,16 +1,13 @@
-# nhutube
+## Description
+- This is an media app
 
-A new Flutter project.
+## Technologies
+- Language: Dart
+- Architecture: Clean architecture
+- Manage state: Bloc, Cubit
+- Packages: flutter_bloc, shared_preferences, flutter_localizations, angles, equatable...
 
-## Getting Started
+## Video demo
 
-This project is a starting point for a Flutter application.
+https://user-images.githubusercontent.com/81070850/215936100-5752c40c-b5ed-4f5d-bcee-5313a4bb7ea4.mp4
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
